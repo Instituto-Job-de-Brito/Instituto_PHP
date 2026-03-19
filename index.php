@@ -25,8 +25,7 @@ include __DIR__ . '/includes/nav.php';
 
       <h1 class="hero__title" aria-label="Instituto Job de Pesquisa e Educação">
         <span class="headline-line is-animated" style="--d: 0ms;">Instituto Job</span>
-        <span class="headline-line is-animated" style="--d: 120ms;">de Pesquisa</span>
-        <span class="headline-line is-animated" style="--d: 240ms;">e Educação</span>
+        <span class="headline-line is-animated" style="--d: 140ms;">de Pesquisa e Educação</span>
       </h1>
 
       <p class="hero__subtitle reveal">Educação com rigor. <em>Pesquisa com propósito.</em></p>
@@ -43,60 +42,9 @@ include __DIR__ . '/includes/nav.php';
       </div>
     </div>
 
-    <!-- Elemento visual: mapa conceitual (SVG) assimétrico -->
+    <!-- Elemento visual (imagem) -->
     <div class="hero__visual" aria-hidden="true">
-      <svg class="concept-map" viewBox="0 0 720 520" role="img" aria-label="">
-        <defs>
-          <linearGradient id="gGold" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stop-color="#e2c47a" stop-opacity="0.55" />
-            <stop offset="1" stop-color="#c9a84c" stop-opacity="0.22" />
-          </linearGradient>
-          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g fill="none" stroke="url(#gGold)" stroke-width="1.2" opacity="0.75" filter="url(#softGlow)">
-          <path d="M78 130 L210 78 L340 138 L455 92 L610 148" />
-          <path d="M120 260 L250 210 L350 260 L470 206 L600 274" />
-          <path d="M165 392 L305 340 L410 400 L545 332" />
-          <path d="M210 78 L250 210" />
-          <path d="M340 138 L350 260" />
-          <path d="M455 92 L470 206" />
-          <path d="M305 340 L250 210" />
-          <path d="M410 400 L350 260" />
-          <path d="M545 332 L470 206" />
-        </g>
-        <g fill="#c9a84c" opacity="0.6">
-          <circle cx="210" cy="78" r="3" />
-          <circle cx="340" cy="138" r="3" />
-          <circle cx="455" cy="92" r="3" />
-          <circle cx="610" cy="148" r="3" />
-          <circle cx="250" cy="210" r="3" />
-          <circle cx="350" cy="260" r="3" />
-          <circle cx="470" cy="206" r="3" />
-          <circle cx="600" cy="274" r="3" />
-          <circle cx="305" cy="340" r="3" />
-          <circle cx="410" cy="400" r="3" />
-          <circle cx="545" cy="332" r="3" />
-        </g>
-        <g opacity="0.14" stroke="#c9a84c" stroke-width="1">
-          <path d="M30 40 H690" />
-          <path d="M30 120 H690" />
-          <path d="M30 200 H690" />
-          <path d="M30 280 H690" />
-          <path d="M30 360 H690" />
-          <path d="M30 440 H690" />
-          <path d="M100 20 V500" />
-          <path d="M220 20 V500" />
-          <path d="M340 20 V500" />
-          <path d="M460 20 V500" />
-          <path d="M580 20 V500" />
-        </g>
-      </svg>
+      <img class="concept-map" src="bbmac.webp" alt="" loading="lazy" decoding="async" />
     </div>
 
     <div class="scroll-indicator" aria-hidden="true">

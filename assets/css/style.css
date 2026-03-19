@@ -73,6 +73,18 @@ a:hover{color:var(--cor-ouro-claro)}
 .header-inner{display:flex; align-items:center; justify-content:space-between; gap:18px}
 
 .brand{display:grid; gap:3px; align-items:start}
+.brand__top{display:flex; align-items:baseline; gap:10px}
+.brand__sigla{
+  font-family:var(--font-mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  color:rgba(226,196,122,.95);
+  padding:6px 8px;
+  border-radius:12px;
+  border:1px solid rgba(201,168,76,.55);
+  background:rgba(16,24,40,.35);
+}
 .brand__name{
   font-family:var(--font-titulos);
   letter-spacing:.02em;
@@ -147,6 +159,22 @@ a:hover{color:var(--cor-ouro-claro)}
 .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0); opacity:1}
 .mobile-menu__top{display:flex; align-items:center; justify-content:space-between; gap:16px}
 .mobile-menu__title{font-family:var(--font-titulos); font-size:1.35rem}
+.mobile-menu__sigla{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:fit-content;
+  margin-bottom:10px;
+  font-family:var(--font-mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  color:rgba(226,196,122,.95);
+  padding:7px 10px;
+  border-radius:12px;
+  border:1px solid rgba(201,168,76,.55);
+  background:rgba(10,15,30,.25);
+}
 .mobile-menu__subtitle{display:block; font-family:var(--font-sub); color:var(--cor-texto-suave); margin-top:2px}
 .mobile-menu__close{
   appearance:none; border:1px solid rgba(30,45,69,.75);
@@ -233,8 +261,8 @@ a:hover{color:var(--cor-ouro-claro)}
 .hero__title{margin:0 0 14px; font-family:var(--font-titulos); font-weight:500; letter-spacing:.01em}
 .headline-line{
   display:block;
-  font-size:clamp(3rem, 6vw, 6rem);
-  line-height:1.02;
+  font-size:clamp(2.55rem, 4.8vw, 4.8rem);
+  line-height:1.06;
   overflow:hidden;
 }
 .headline-line.is-animated{

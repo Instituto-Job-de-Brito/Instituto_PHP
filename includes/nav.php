@@ -16,9 +16,9 @@ $isActive = static function (string $file) use ($current): string {
 <header class="site-header" id="topo">
   <div class="container header-inner">
     <a class="brand" href="index.php" aria-label="Ir para o início">
-      <span class="brand__name">Instituto Job</span>
-      <span class="brand__rule" aria-hidden="true"></span>
-      <span class="brand__sub">Pesquisa e Educação</span>
+      <span class="brand__top">
+        <span class="brand__sigla" aria-hidden="true">IJPE</span>
+      </span>
     </a>
 
     <nav class="nav" aria-label="Navegação principal">
@@ -40,8 +40,7 @@ $isActive = static function (string $file) use ($current): string {
     <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="mobile-menu__top">
         <div class="mobile-menu__brand">
-          <span class="mobile-menu__title">Instituto Job</span>
-          <span class="mobile-menu__subtitle">Pesquisa e Educação</span>
+          <span class="mobile-menu__sigla" aria-hidden="true">IJPE</span>
         </div>
         <button class="mobile-menu__close" type="button" aria-label="Fechar menu">
           <span aria-hidden="true">×</span>
