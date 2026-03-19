@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1e"/>
+      <stop offset="1" stop-color="#101828"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e2c47a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#c9a84c" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M120 206H1080" stroke="url(#gold)" stroke-width="2" opacity="0.45"/>
+  <path d="M120 424H1080" stroke="url(#gold)" stroke-width="2" opacity="0.25"/>
+  <text x="120" y="298" fill="#e8e4dc" font-size="64" font-family="Playfair Display, serif">Instituto Job</text>
+  <text x="120" y="348" fill="#8a9ab5" font-size="36" font-family="Cormorant Garamond, serif">Pesquisa e Educação</text>
+  <text x="120" y="486" fill="#c9a84c" font-size="20" font-family="Space Mono, monospace" letter-spacing="5">JATAÍ — GOIÁS — BRASIL</text>
+</svg>
+
