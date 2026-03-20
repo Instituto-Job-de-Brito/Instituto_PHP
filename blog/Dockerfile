@@ -30,9 +30,6 @@ RUN printf '<Directory /var/www/html/public>\n\
 WORKDIR /var/www/html
 COPY blog/ .
 
-# ca.pem do Aiven — copiado da raiz do repo para dentro do container
-COPY ca.pem /var/www/html/ca.pem
-
 # Instala dependências PHP sem dev
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
