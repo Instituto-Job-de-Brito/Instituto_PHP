@@ -1,9 +1,0 @@
-[build]
-dockerfilePath = "blog/Dockerfile"
-buildContext   = "."
-
-[deploy]
-startCommand = "/usr/local/bin/entrypoint.sh"
-healthcheckPath = "/up"
-healthcheckTimeout = 30
-restartPolicyType = "on_failure"
