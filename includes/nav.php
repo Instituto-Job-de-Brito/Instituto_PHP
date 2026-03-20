@@ -27,6 +27,7 @@ $isActive = static function (string $file) use ($current): string {
       <a class="nav__link<?php echo $isActive('revista.php'); ?>" href="revista.php">Revista</a>
       <a class="nav__link<?php echo $isActive('cursos.php'); ?>" href="cursos.php">Cursos</a>
       <a class="nav__link" href="blog/">Blog</a>
+      <a class="nav__link" href="blog/admin/login">Admin</a>
       <a class="nav__link<?php echo $isActive('contato.php'); ?>" href="contato.php">Contato</a>
     </nav>
 
@@ -54,6 +55,7 @@ $isActive = static function (string $file) use ($current): string {
         <a class="mobile-menu__link<?php echo $isActive('revista.php'); ?>" href="revista.php">Revista RCBC</a>
         <a class="mobile-menu__link<?php echo $isActive('cursos.php'); ?>" href="cursos.php">Cursos</a>
         <a class="mobile-menu__link" href="blog/">Blog</a>
+        <a class="mobile-menu__link" href="blog/admin/login">Admin</a>
         <a class="mobile-menu__link<?php echo $isActive('contato.php'); ?>" href="contato.php">Contato</a>
       </div>
 

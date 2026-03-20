@@ -28,6 +28,16 @@ else
   echo "  cp -R blog_scaffold/* blog/"
 fi
 
+# Certificado CA (Aiven/Postgres) — opcional
+mkdir -p blog/storage/certs
+if [ -f "$ROOT_DIR/ca.pem" ] && [ ! -f "$ROOT_DIR/blog/storage/certs/aiven-ca.pem" ]; then
+  cp "$ROOT_DIR/ca.pem" "$ROOT_DIR/blog/storage/certs/aiven-ca.pem"
+  echo "CA do Postgres copiado para: blog/storage/certs/aiven-ca.pem"
+elif [ -f "$ROOT_DIR/ce.pem" ] && [ ! -f "$ROOT_DIR/blog/storage/certs/aiven-ca.pem" ]; then
+  cp "$ROOT_DIR/ce.pem" "$ROOT_DIR/blog/storage/certs/aiven-ca.pem"
+  echo "CA do Postgres copiado para: blog/storage/certs/aiven-ca.pem"
+fi
+
 echo ""
 echo "Pronto. Próximos passos:"
 echo "  cd blog"
@@ -36,4 +46,3 @@ echo "  edite .env (DB_CONNECTION=sqlite, BLOG_ADMIN_*)"
 echo "  php artisan key:generate"
 echo "  php artisan migrate"
 echo ""
-
