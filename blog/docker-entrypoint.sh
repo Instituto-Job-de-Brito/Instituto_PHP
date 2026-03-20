@@ -1,18 +1,17 @@
 #!/bin/bash
-set -e
 
-# Gera APP_KEY se ainda não estiver definida
+# Gera APP_KEY se não estiver definida
 if [ -z "$APP_KEY" ]; then
   php artisan key:generate --force
 fi
 
-# Otimiza autoload e config para produção
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# Cache — ignora erros (ex: banco indisponível no boot)
+php artisan config:cache  || true
+php artisan route:cache   || true
+php artisan view:cache    || true
 
-# Roda migrations automaticamente
-php artisan migrate --force
+# Migrations
+php artisan migrate --force || echo "[entrypoint] migrate falhou — continuando"
 
-# Inicia o Apache
-exec "$@"
+# Inicia o Apache em foreground
+exec apache2-foreground
