@@ -5,13 +5,9 @@ RUN apt-get update && apt-get install -y \
       libpq-dev \
       libzip-dev \
       unzip \
-      curl \
     && docker-php-ext-install pdo pdo_pgsql zip \
     && docker-php-ext-enable opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Habilita mod_rewrite
 RUN a2enmod rewrite
@@ -25,16 +21,9 @@ RUN printf '<Directory /var/www/html/public>\n\
     Require all granted\n\
 </Directory>\n' >> /etc/apache2/apache2.conf
 
-# Copia o app (build context é a raiz do repo)
+# Copia o app com vendor já incluído
 WORKDIR /var/www/html
 COPY blog/ .
-
-# Instala dependências PHP sem dev
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install \
-      --no-dev \
-      --optimize-autoloader \
-      --no-interaction \
-      --no-scripts
 
 # Permissões
 RUN chown -R www-data:www-data storage bootstrap/cache \
