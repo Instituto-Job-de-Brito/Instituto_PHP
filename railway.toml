@@ -3,7 +3,7 @@ dockerfilePath = "blog/Dockerfile"
 buildContext   = "."
 
 [deploy]
-startCommand = "docker-entrypoint.sh apache2-foreground"
+startCommand = "/usr/local/bin/entrypoint.sh"
 healthcheckPath = "/up"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
