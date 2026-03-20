@@ -31,8 +31,8 @@ RUN chown -R www-data:www-data storage bootstrap/cache \
 
 EXPOSE 80
 
-COPY blog/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+# Entrypoint: roda artisan e sobe apache
+COPY blog/docker-entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["apache2-foreground"]
+CMD ["/usr/local/bin/entrypoint.sh"]
