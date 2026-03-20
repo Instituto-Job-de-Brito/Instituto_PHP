@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 # Extensões necessárias
 RUN apt-get update && apt-get install -y \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Habilita mod_rewrite, garante apenas um MPM ativo
-RUN a2dismod mpm_event mpm_worker 2>/dev/null || true \
+RUN a2dismod mpm_event mpm_worker mpm_prefork 2>/dev/null || true \
     && a2enmod mpm_prefork rewrite
 
 # Document root aponta para public/
