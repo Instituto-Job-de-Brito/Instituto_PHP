@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
       libzip-dev \
       unzip \
       curl \
-    && docker-php-ext-install pdo pdo_pgsql zip opcache \
+    && docker-php-ext-install pdo pdo_pgsql zip \
+    && docker-php-ext-enable opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Composer
@@ -16,8 +17,6 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 
 # Document root aponta para public/
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
 RUN sed -ri 's|DocumentRoot\s+/var/www/html|DocumentRoot /var/www/html/public|g' \
         /etc/apache2/sites-available/000-default.conf
 
@@ -31,7 +30,11 @@ WORKDIR /var/www/html
 COPY blog/ .
 
 # Instala dependências PHP sem dev
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install \
+      --no-dev \
+      --optimize-autoloader \
+      --no-interaction \
+      --no-scripts
 
 # Permissões
 RUN chown -R www-data:www-data storage bootstrap/cache \
