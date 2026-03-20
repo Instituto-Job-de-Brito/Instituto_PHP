@@ -9,8 +9,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Habilita mod_rewrite
-RUN a2enmod rewrite
+# Habilita mod_rewrite, garante apenas um MPM ativo
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true \
+    && a2enmod mpm_prefork rewrite
 
 # Document root aponta para public/
 RUN sed -ri 's|DocumentRoot\s+/var/www/html|DocumentRoot /var/www/html/public|g' \
