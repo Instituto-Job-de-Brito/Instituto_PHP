@@ -18,8 +18,7 @@
           <a href="sobre.php">Sobre</a>
           <a href="revista.php">Revista</a>
           <a href="cursos.php">Cursos</a>
-          <a href="blog/">Blog</a>
-          <a href="blog/admin/login">Admin</a>
+          <a href="https://blog.institutojob.com.br">Blog</a>
           <a href="contato.php">Contato</a>
         </div>
       </div>
