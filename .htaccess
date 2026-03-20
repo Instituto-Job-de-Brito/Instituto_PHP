@@ -1,15 +1,1 @@
 DirectoryIndex index.php index.html
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-
-  # Blog (Laravel) dentro de /blog.
-  # Se você não conseguir apontar o DocumentRoot para blog/public,
-  # estas regras encaminham /blog/* para /blog/public/*.
-  RewriteCond %{REQUEST_URI} ^/blog(?:/.*)?$ [NC]
-  RewriteCond %{REQUEST_URI} !^/blog/public(?:/.*)?$ [NC]
-  RewriteCond %{DOCUMENT_ROOT}/blog/public -d
-  RewriteRule ^blog$ blog/public/ [L,R=302]
-  RewriteRule ^blog/(.*)$ blog/public/$1 [L]
-</IfModule>
-

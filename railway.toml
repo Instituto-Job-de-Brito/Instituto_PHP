@@ -1,0 +1,9 @@
+[build]
+dockerfilePath = "blog/Dockerfile"
+buildContext   = "."
+
+[deploy]
+startCommand = "docker-entrypoint.sh apache2-foreground"
+healthcheckPath = "/up"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"

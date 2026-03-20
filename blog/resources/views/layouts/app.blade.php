@@ -1,8 +1,8 @@
 @php
-  $pageTitle = $title ?? 'Blog — Instituto Job';
+  $pageTitle       = $title ?? 'Blog — Instituto Job';
   $pageDescription = $description ?? 'Blog do Instituto Job de Pesquisa e Educação.';
-
-  $isBlog = request()->routeIs('blog.*');
+  $isBlog          = request()->routeIs('blog.*');
+  $site            = 'https://institutojob.com.br';
 @endphp
 <!doctype html>
 <html lang="pt-BR">
@@ -11,10 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="{{ $pageDescription }}" />
 
-  <meta property="og:title" content="{{ $pageTitle }}" />
+  <meta property="og:title"       content="{{ $pageTitle }}" />
   <meta property="og:description" content="{{ $pageDescription }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/img/og-placeholder.svg" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="{{ url()->current() }}" />
 
   <title>{{ $pageTitle }}</title>
 
@@ -22,7 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  {{-- CSS do site (copiado para public/ do blog) --}}
+  <link rel="stylesheet" href="{{ asset('style.css') }}" />
+
   @stack('head')
 </head>
 <body>
@@ -30,19 +32,19 @@
 
   <header class="site-header" id="topo">
     <div class="container header-inner">
-      <a class="brand" href="/index.php" aria-label="Ir para o início">
+      <a class="brand" href="{{ $site }}" aria-label="Ir para o início">
         <span class="brand__top">
           <span class="brand__sigla" aria-hidden="true">IJPE</span>
         </span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
-        <a class="nav__link" href="/index.php">Início</a>
-        <a class="nav__link" href="/sobre.php">Sobre</a>
-        <a class="nav__link" href="/revista.php">Revista</a>
-        <a class="nav__link" href="/cursos.php">Cursos</a>
+        <a class="nav__link" href="{{ $site }}">Início</a>
+        <a class="nav__link" href="{{ $site }}/sobre.php">Sobre</a>
+        <a class="nav__link" href="{{ $site }}/revista.php">Revista</a>
+        <a class="nav__link" href="{{ $site }}/cursos.php">Cursos</a>
         <a class="nav__link{{ $isBlog ? ' ativo' : '' }}" href="{{ route('blog.index') }}">Blog</a>
-        <a class="nav__link" href="/contato.php">Contato</a>
+        <a class="nav__link" href="{{ $site }}/contato.php">Contato</a>
         @if (session('blog_admin'))
           <a class="nav__link" href="{{ route('admin.posts.index') }}">Admin</a>
         @endif
@@ -67,12 +69,12 @@
         </div>
 
         <div class="mobile-menu__links">
-          <a class="mobile-menu__link" href="/index.php">Início</a>
-          <a class="mobile-menu__link" href="/sobre.php">Sobre</a>
-          <a class="mobile-menu__link" href="/revista.php">Revista RCBC</a>
-          <a class="mobile-menu__link" href="/cursos.php">Cursos</a>
+          <a class="mobile-menu__link" href="{{ $site }}">Início</a>
+          <a class="mobile-menu__link" href="{{ $site }}/sobre.php">Sobre</a>
+          <a class="mobile-menu__link" href="{{ $site }}/revista.php">Revista RCBC</a>
+          <a class="mobile-menu__link" href="{{ $site }}/cursos.php">Cursos</a>
           <a class="mobile-menu__link{{ $isBlog ? ' ativo' : '' }}" href="{{ route('blog.index') }}">Blog</a>
-          <a class="mobile-menu__link" href="/contato.php">Contato</a>
+          <a class="mobile-menu__link" href="{{ $site }}/contato.php">Contato</a>
           @if (session('blog_admin'))
             <a class="mobile-menu__link" href="{{ route('admin.posts.index') }}">Admin</a>
           @endif
@@ -107,12 +109,12 @@
         </div>
 
         <div class="footer-links" aria-label="Links rápidos">
-          <a href="/index.php">Início</a>
-          <a href="/sobre.php">Sobre</a>
-          <a href="/revista.php">Revista</a>
-          <a href="/cursos.php">Cursos</a>
+          <a href="{{ $site }}">Início</a>
+          <a href="{{ $site }}/sobre.php">Sobre</a>
+          <a href="{{ $site }}/revista.php">Revista</a>
+          <a href="{{ $site }}/cursos.php">Cursos</a>
           <a href="{{ route('blog.index') }}">Blog</a>
-          <a href="/contato.php">Contato</a>
+          <a href="{{ $site }}/contato.php">Contato</a>
         </div>
       </div>
 
@@ -125,7 +127,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="{{ asset('main.js') }}" defer></script>
   @stack('scripts')
 </body>
 </html>
