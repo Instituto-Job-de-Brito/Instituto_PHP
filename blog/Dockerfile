@@ -9,14 +9,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Habilita mod_rewrite, garante apenas um MPM ativo
-RUN rm -f /etc/apache2/mods-enabled/mpm_event.conf \
-          /etc/apache2/mods-enabled/mpm_event.load \
-          /etc/apache2/mods-enabled/mpm_worker.conf \
-          /etc/apache2/mods-enabled/mpm_worker.load \
-    && ln -sf /etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf \
-    && ln -sf /etc/apache2/mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load \
-    && ln -sf /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+# Habilita mod_rewrite e garante um unico MPM ativo (prefork).
+# Usamos a2dismod/a2enmod para evitar estado inconsistente de symlinks.
+RUN a2dismod mpm_event mpm_worker || true \
+    && a2enmod mpm_prefork rewrite
 
 # Document root aponta para public/
 RUN sed -ri 's|DocumentRoot\s+/var/www/html|DocumentRoot /var/www/html/public|g' \
